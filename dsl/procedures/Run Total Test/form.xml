@@ -42,7 +42,7 @@ documentation : Help text for the parameter
         <label>Mainframe Host Name or IP:</label>
         <property>host</property>
         <required>1</required>
-        <documentation>The mainframe host addess or IP address.</documentation>
+        <documentation>The mainframe host addess or IP address</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -70,7 +70,7 @@ documentation : Help text for the parameter
         <label>Project Path:</label>
         <property>projectPath</property>
         <required>1</required>
-        <documentation>The path of the folder containing the Total Test project.</documentation>
+        <documentation>The path of the folder containing the Total Test project</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>

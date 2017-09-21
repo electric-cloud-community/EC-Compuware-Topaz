@@ -21,35 +21,35 @@
         <label>Configuration:</label>
         <property>config</property>
         <required>1</required>
-        <documentation>Unique name for the plugin configuration.</documentation>
+        <documentation>Unique name for the plugin configuration</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Description:</label>
         <property>desc</property>
         <required>0</required>
-        <documentation>Description for the plugin configuration.</documentation>
+        <documentation>Description for the plugin configuration</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Topaz CLI Agent:</label>
         <property>topazCLIAgent</property>
         <required>1</required>
-        <documentation>The name of the agent for the machine where the Topaz Command-Line Interface tools are installed.</documentation>
+        <documentation>The name of the agent for the machine where the Topaz Command-Line Interface tools are installed</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Topaz CLI Directory:</label>
         <property>topazCLIDirectory</property>
         <required>1</required>
-        <documentation>The directory path on the Topaz CLI Agent machine where the Topaz Command-Line Interface tools are installed.</documentation>
+        <documentation>The directory path on the Topaz CLI Agent machine where the Topaz Command-Line Interface tools are installed</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>JRE Home Directory:</label>
         <property>jreHome</property>
         <required>1</required>
-        <documentation>The directory path on the Topaz CLI Agent machine of the Java Runtime Environment (JRE) to use with the Topaz Command-Line Interface tools.</documentation>
+        <documentation>The directory path on the Topaz CLI Agent machine of the Java Runtime Environment (JRE) to use with the Topaz Command-Line Interface tools</documentation>
     </formElement>
     <formElement>
         <type>credential</type>

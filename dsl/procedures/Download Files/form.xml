@@ -35,35 +35,35 @@ documentation : Help text for the parameter
         <label>Configuration Name:</label>
         <property>configurationName</property>
         <required>1</required>
-        <documentation>Name of EC-Compuware-Topaz configuration to use.</documentation>
+        <documentation>Name of EC-Compuware-Topaz configuration to use</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe Host Name or IP:</label>
         <property>host</property>
         <required>1</required>
-        <documentation> -?</documentation>
+        <documentation>Host/IP of mainframe to connect</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe Port:</label>
         <property>port</property>
         <required>1</required>
-        <documentation> -?</documentation>
+        <documentation>Define the port to connect to mainframe</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe User Name:</label>
         <property>userId</property>
         <required>1</required>
-        <documentation> -?</documentation>
+        <documentation>Username to access mainframe</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe Password:</label>
         <property>pw</property>
         <required>1</required>
-        <documentation> -?</documentation>
+        <documentation>Password to access mainframe</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -77,7 +77,7 @@ documentation : Help text for the parameter
         <label>Timeout:</label>
         <property>timeout</property>
         <required>1</required>
-        <documentation>The timeout. -?</documentation>
+        <documentation>Work timeout</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -91,7 +91,7 @@ documentation : Help text for the parameter
         <label>Topaz CLI Workspace:</label>
         <property>topazCLIWorkspace</property>
         <required>1</required>
-        <documentation>#### n/a</documentation>
+        <documentation>Topaz CLI Workspace</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -115,11 +115,11 @@ documentation : Help text for the parameter
         <documentation>The life cycle level to retrieve from</documentation>
     </formElement> 
     <formElement>
-        <type>entry</type> #### dropdown ####
+        <type>entry</type>
         <label>Level Option:</label>
         <property>levelOption</property>
         <required>1</required>
-        <documentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above</documentation>
+        <htmlDocumentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above</htmlDocumentation>
     </formElement> 
     <formElement>
         <type>entry</type>

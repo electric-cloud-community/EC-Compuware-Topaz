@@ -1,13 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta content="text/html; charset=us-ascii" http-equiv="content-type"/>
-        <title>MyPlugin</title>
+        <title>@PLUGIN_KEY@ Plugin</title>
+        <link rel="stylesheet" href="../../plugins/@PLUGIN_NAME@/pluginhelp.css" type="text/css" media="screen"/>
     </head>
     <body>
         <div class="help">
-            <h1>MyPlugin</h1>
-			<h3>Overview</h3>
-			<p></p>
-		</div>
-	</body>
-</html>	
+            <p>Plugin version @PLUGIN_VERSION@</p>
+            <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade"/>
+            <h3>Overview</h3>
+            <p>@PLUGIN_KEY@ plugin integrates with Topaz by Compuware</p>
+            <h1>Contents</h1>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#CreateConfiguration">Setting Up the Plugin Configuration</a></li>
+                <li><a href="#download_files">Download Files Procedure</a></li>
+                <li><a href="#run_total_test">Run Total Test Procedure</a></li>
+            </ul>
+
+            <div id="overview">
+                <a name="overview" id="overview"></a>
+                <h2>Overview</h2>
+                <p>
+                    @PLUGIN_KEY@ plugin integrates with Topaz by Compuware<br/>
+                    Plugin uses the ISPW CLI to integrate with topaz: downloading source code or other component files, running Total Test test suite(s) or scenario(s)<br /><br />
+                </p>
+            </div>
+            <div id="CreateConfiguration">
+                <a name="CreateConfiguration" id="CreateConfigurationLink"></a>
+                <h2>Plugin Configurations</h2>
+                <!-- If the plugin has separate configurations then include
+                     this section, otherwise omit this whole section. We don't
+                     need to have a configuration section that just says "There
+                     is no configuration for this plugin." -->
+                <p>
+                    Plugin configurations are sets of parameters that apply
+                    across some or all of the plugin procedures. They
+                    reduce repetition of common values, create
+                    predefined parameter sets for end users, and
+                    securely store credentials where needed. Each configuration
+                    is given a unique name that is entered in designated
+                    parameters on procedures that use them.<br /><br />
+                </p>
+                <!-- For all parameters, the parameter name should be *exactly*
+                     the same as it appears in the Parameter Panel, and the first
+                     sentence(s) of the description should be the same as the tooltip (if
+                     there is one). After that, the parameter description can go into
+                     greater detail about the parameter including valid value ranges and
+                     examples. -->
+                <h3>Creating Plugin Configurations</h3>
+                <p>To create plugin configurations in ElectricFlow,
+                do these steps:</p>
+                <ol>
+                    <li>Go to <b>Administration</b> &gt; <b>Plugins</b> to open the Plugin Manager.</li>
+                    <li>Find the @PLUGIN_KEY@ row.</li>
+                    <li>Click <b>Configure</b> to open the
+                    @PLUGIN_KEY@ Configurations page.</li>
+                    <li>Click <b>Create Configuration</b>.</li>
+                    <li>To enable ElectricFlow server to communicate with the Parasoft API,
+                    enter the following information:<br /></li>
+                    <table class="grid">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="required">Configuration</td>
+                                <td>Unique name for the plugin configuration</td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>Specifies the description for the configuration</td>
+                            </tr>
+                            <tr>
+                                <td class="required">Topaz CLI Agent</td>
+                                <td>The name of the agent for the machine where the Topaz Command-Line Interface tools are installed</td>
+                            </tr>
+                            <tr>
+                                <td class="required">Topaz CLI Directory</td>
+                                <td>The directory path on the Topaz CLI Agent machine where the Topaz Command-Line Interface tools are installed</td>
+                            </tr>
+                            <tr>
+                                <td class="required">JRE Home Directory</td>
+                                <td>The directory path on the Topaz CLI Agent machine of the Java Runtime Environment (JRE) to use with the Topaz Command-Line Interface tools</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </ol>
+                <p>The @PLUGIN_KEY@ Configurations page now shows the new configuration.</p>
+                <h3>Editing Plugin Configurations</h3>
+                <p>To edit plugin configurations in ElectricFlow,
+                do these steps:</p>
+                <ol>
+                    <li>Go to <b>Administration</b> &gt; <b>Plugins</b> to open the Plugin Manager.</li>
+                    <li>Find the @PLUGIN_KEY@ row.</li>
+                    <li>Click <b>Configure</b> to open the
+                    @PLUGIN_KEY@ Configurations page.</li>
+                    <li>Find the configuration that you want to edit.</li>
+                    <li>Click <b>Edit</b>.</li>
+                    <li>Edit the parameters in the configuration.</li>
+                    <li>Click <b>OK</b> to save the modified configuration.</li>
+                </ol>
+            </div>
+
+            <div id="download_files">
+                <a id="download_files" name="download_files"></a>
+                <h2>Download Files Procedure</h2>
+                <p>Downloading source code or other component files</p>
+                <h3>Params for the @PLUGIN_KEY@ job to download source code or other component files</h3>
+                <table class="grid">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="required">Configuration Name</td>
+                            <td>Name of EC-Compuware-Topaz configuration to use</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Host Name or IP</td>
+                            <td>The mainframe host addess or IP address</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Port</td>
+                            <td>The mainframe host port number. e.g "16196"</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe User Name</td>
+                            <td>The user name to use to log on to mainframe host</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Password</td>
+                            <td>The password to use to log on to mainframe host</td>
+                        </tr>
+                        <tr>
+                            <td class="required">EBCDIC Code Page</td>
+                            <td>The EBCDIC code page to use for transferring files from the host. e.g "1047"</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Timeout</td>
+                            <td>Work timeout</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Target Folder</td>
+                            <td>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Topaz CLI Workspace</td>
+                            <td>Topaz CLI Workspace</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Server Stream</td>
+                            <td>The two-to-eight character stream defining the application structure with which the application is associated</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Server Application</td>
+                            <td>The container's primary application code. Containers may include components from multiple applications</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Server Level</td>
+                            <td>The life cycle level to retrieve from</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Level Option</td>
+                            <td>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Filter Files</td>
+                            <td>Setting for files filtering</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Filter Folders</td>
+                            <td>Setting for directories filtering</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Server Configuration</td>
+                            <td>The host runtime configuration</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Folder Name</td>
+                            <td>The name of the base folder to retrieve from. If this is omitted, the root folder is assumed</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Component Type</td>
+                            <td>The ISPW component type (such as COB, COPY, or JOB) to return. Folders are always returned. If this is omitted, all component types are returned</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div id="run_total_test">
+                <a id="run_total_test" name="run_total_test"></a>
+                <h2>Run Total Test Procedure</h2>
+                <p>Running Total Test test suite(s) or scenario(s)</p>
+                <h3>Params for the @PLUGIN_KEY@ job to run Total Test test suite(s) or scenario(s)</h3>
+                <table class="grid">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="required">Configuration Name</td>
+                            <td>Name of EC-Compuware-Topaz configuration to use</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Host Name or IP</td>
+                            <td>The mainframe host addess or IP address</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Port</td>
+                            <td>The mainframe host port number. e.g "16196"</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe User Name</td>
+                            <td>The user name to use to log on to mainframe host</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Mainframe Password</td>
+                            <td>The password to use to log on to mainframe host</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Project Path</td>
+                            <td>The path of the folder containing the Total Test project</td>
+                        </tr>
+                        <tr>
+                            <td class="required">Test Suite or Test Suite List</td>
+                            <td>The name of the test scenario(s) or test suite(s) to run. e.g. "ALL_SCENARIOS"</td>
+                        </tr>
+                        <tr>
+                            <td class="required">JCL</td>
+                            <td>The name of the JCL to run the Topaz for Total Test test scenario or test suite</td>
+                        </tr>
+                        <tr>
+                            <td class="required">External Tools Workspace</td>
+                            <td>The path of a directory to check out the source code</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <h1 id="releaseNotes">Release Notes</h1>
+            <h3>@PLUGIN_KEY@ @PLUGIN_VERSION@</h3>
+            <ul>
+                <li>Couple bugs fixed</li>
+            </ul>
+        </div>
+    </body>
+</html>
