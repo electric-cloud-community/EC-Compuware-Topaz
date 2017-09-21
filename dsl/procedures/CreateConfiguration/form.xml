@@ -56,7 +56,7 @@
         <label>Credential:</label>
         <property>credential</property>
         <required>1</required>
-        <documentation>Credentials to connect to mainframe (currently unused).</documentation>
+        <documentation>Credentials to connect to mainframe</documentation>
         <attachedAsParameterToStep>createAndAttachCredential</attachedAsParameterToStep>
     </formElement>
 </editor>

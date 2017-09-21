@@ -35,15 +35,13 @@ documentation : Help text for the parameter
         <label>Configuration Name:</label>
         <property>configurationName</property>
         <required>1</required>
-        <value>config</value>
-        <documentation>Name of EC-Compuware-Topaz configuration to use.</documentation>
+        <documentation>Name of EC-Compuware-Topaz configuration to use</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe Host Name or IP:</label>
         <property>host</property>
         <required>1</required>
-        <value>192.168.96.182</value>
         <documentation>The mainframe host addess or IP address.</documentation>
     </formElement> 
     <formElement>
@@ -51,55 +49,48 @@ documentation : Help text for the parameter
         <label>Mainframe Port:</label>
         <property>port</property>
         <required>1</required>
-        <value>16196</value>
-        <documentation>The mainframe host port number.</documentation>
+        <documentation>The mainframe host port number. e.g "16196"</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe User Name:</label>
         <property>userId</property>
         <required>1</required>
-        <value>elccld1</value>
-        <documentation>The user name to use to log on to mainframe host.</documentation>
+        <documentation>The user name to use to log on to mainframe host</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Mainframe Password:</label>
         <property>pw</property>
         <required>1</required>
-        <value>cpwr2017</value>
-        <documentation>The password to use to log on to mainframe host.</documentation>
+        <documentation>The password to use to log on to mainframe host</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Project Path:</label>
         <property>projectPath</property>
         <required>1</required>
-        <value>C:\ISPW\workspace - electric cloud\Sept 15 Electric Cloud 18.2.1</value>
-        <documentation>>The path of the folder containing the Total Test project.</documentation>
+        <documentation>The path of the folder containing the Total Test project.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Test Suite or Test Suite List:</label>
         <property>testSuiteList</property>
         <required>1</required>
-        <value>ALL_SCENARIOS</value>
-        <documentation>The name of the test scenario(s) or test suite(s) to run. (-ts or -testsuitelist)</documentation>
+        <documentation>The name of the test scenario(s) or test suite(s) to run. e.g. "ALL_SCENARIOS"</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>JCL</label>
         <property>jcl</property>
         <required>1</required>
-        <value>demo cobx CLOUD.jcl</value>
-        <documentation>The name of the JCL to run the Topaz for Total Test test scenario or test suite.</documentation>
+        <documentation>The name of the JCL to run the Topaz for Total Test test scenario or test suite</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>External Tools Workspace:</label>
         <property>externalToolsWs</property>
         <required>1</required>
-        <value>C:\ISPW\workspace - electric cloud</value>
-        <documentation>The path of a directory to check out the source code. (-externaltoolsws => -data)</documentation>
+        <documentation>The path of a directory to check out the source code</documentation>
     </formElement> 
 </editor>

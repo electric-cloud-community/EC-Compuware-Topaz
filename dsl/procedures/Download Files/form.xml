@@ -70,8 +70,7 @@ documentation : Help text for the parameter
         <label>EBCDIC Code Page:</label>
         <property>codePage</property>
         <required>1</required>
-        <value>1047</value>
-        <documentation>The EBCDIC code page to use for transferring files from the host. -?</documentation>
+        <documentation>The EBCDIC code page to use for transferring files from the host. e.g "1047"</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -85,7 +84,7 @@ documentation : Help text for the parameter
         <label>Target Folder:</label>
         <property>targetFolder</property>
         <required>1</required>
-        <documentation>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter. -?</documentation>
+        <documentation>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
@@ -99,62 +98,62 @@ documentation : Help text for the parameter
         <label>Server Stream:</label>
         <property>serverStream</property>
         <required>1</required>
-        <documentation>The two-to-eight character stream defining the application structure with which the application is associated. -ispwServerStream</documentation>
+        <documentation>The two-to-eight character stream defining the application structure with which the application is associated</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Application:</label>
         <property>serverApplication</property>
         <required>1</required>
-        <documentation>The container's primary application code. Containers may include components from multiple applications. -ispwServerApp</documentation>
+        <documentation>The container's primary application code. Containers may include components from multiple applications</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Level:</label>
         <property>serverLevel</property>
         <required>1</required>
-        <documentation>The life cycle level to retrieve from. -ispwServerLevel</documentation>
+        <documentation>The life cycle level to retrieve from</documentation>
     </formElement> 
     <formElement>
         <type>entry</type> #### dropdown ####
         <label>Level Option:</label>
         <property>levelOption</property>
         <required>1</required>
-        <documentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above. -ispwLevelOption</documentation>
+        <documentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Filter Files:</label>
         <property>filterFiles</property>
         <required>1</required>
-        <documentation>-ispwFilterFile</documentation>
+        <documentation>Setting for files filtering</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Filter Folders:</label>
         <property>filterFolders</property>
         <required>1</required>
-        <documentation>-ispwFilterFolders</documentation>
+        <documentation>Setting for directories filtering</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Configuration:</label>
         <property>serverConfig</property>
         <required>0</required>
-        <documentation>The host runtime configuration. -ispwServerConfig</documentation>
+        <documentation>The host runtime configuration</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Folder Name:</label>
         <property>folderName</property>
         <required>0</required>
-        <documentation>The name of the base folder to retrieve from. If this is omitted, the root folder is assumed. -ispwFolderName</documentation>
+        <documentation>The name of the base folder to retrieve from. If this is omitted, the root folder is assumed</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Component Type:</label>
         <property>componentType</property>
         <required>0</required>
-        <documentation>The ISPW component type (such as COB, COPY, or JOB) to return. Folders are always returned. If this is omitted, all component types are returned. -ispwComponentType</documentation>
+        <documentation>The ISPW component type (such as COB, COPY, or JOB) to return. Folders are always returned. If this is omitted, all component types are returned</documentation>
     </formElement> 
 </editor>
