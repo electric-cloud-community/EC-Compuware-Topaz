@@ -1,0 +1,3 @@
+cd "$[topazCLIDirectory]"
+cd "$[topazCLIWorkspace]"
+"$[topazCLIDirectory]\SCMDownloaderCLI.bat" -host $[host] -port $[port] -id "$[userId]" -pass "$[pw]" -code "$[codePage]" -timeout "$[timeout]" -scm ispw -targetFolder "$[targetFolder]" -data "$[topazCLIWorkspace]" -ispwServerStream "$[serverStream]" -ispwServerApp "$[serverApplication]" -ispwServerLevel "$[serverLevel]" -ispwLevelOption "$[levelOption]" -ispwFilterFiles "$[filterFiles]" -ispwFilterFolders "$[filterFolders]" -ispwComponentType "$[componentType]"
