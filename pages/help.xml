@@ -11,8 +11,35 @@
         <div class="help">
             <p>Plugin version @PLUGIN_VERSION@</p>
             <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade"/>
-            <h3>Overview</h3>
-            <p>@PLUGIN_KEY@ plugin integrates with Topaz by Compuware</p>
+            <h1>Overview</h1>
+		<p>@PLUGIN_KEY@ plugin integrates with Topaz by Compuware</p>
+            
+		<p>Topaz is Integrated Development Environment (IDE) and
+		associated tools produced by Compuware, based on the open-source
+		Java IDE Eclipse. It has integrations with a number of Source
+		Code Management (SCM) systems, including Compuware's ISPW, which
+		is an integrated SCM and Enterprise Software Change Management
+		Product for use with IBM z/OS mainframes. Topaz also integrates
+		with the Compuware's Topaz for Total Test testing framework for
+		COBOL unit testing. Topaz provides a set of Command Line
+		Interface (CLI) tools.</p>
+
+	    <h2>Topaz Links</h2>
+
+		<p>More information on Topaz can be found at
+		<a href="https://compuware.com/topaz-modern-mainframe-development-testing/">this
+		website</a>.</p>
+
+	    <h2>ElectricFlow Integration to Topaz</h2>
+
+		<p>The plugin calls the Topaz CLI scripts "TopazCLI" 
+		or "SCMDownloaderCLI" (depending on version of Topaz)
+		and "TotalTestCLI" from the command line, and passes the
+		user-provided parameters in the parameter panel. This plugin
+		allows you to use Topaz to download files/datasets from ISPW,
+		and to execute tests from a downloaded Total Test test project
+	    		on an ISPW z/OS server.</p>
+
             <h1>Contents</h1>
             <ul>
                 <li><a href="#overview">Overview</a></li>

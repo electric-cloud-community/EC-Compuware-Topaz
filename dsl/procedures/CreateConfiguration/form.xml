@@ -21,42 +21,66 @@
         <label>Configuration:</label>
         <property>config</property>
         <required>1</required>
-        <documentation>Unique name for the plugin configuration</documentation>
+        <documentation>Unique name for the plugin configuration.</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Description:</label>
         <property>desc</property>
         <required>0</required>
-        <documentation>Description for the plugin configuration</documentation>
+        <documentation>Description for the plugin configuration.</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Topaz CLI Agent:</label>
         <property>topazCLIAgent</property>
         <required>1</required>
-        <documentation>The name of the agent for the machine where the Topaz Command-Line Interface tools are installed</documentation>
+        <documentation>The name of the agent for the machine where the Topaz Command-Line Interface tools are installed.</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>Topaz CLI Directory:</label>
         <property>topazCLIDirectory</property>
         <required>1</required>
-        <documentation>The directory path on the Topaz CLI Agent machine where the Topaz Command-Line Interface tools are installed</documentation>
+        <value>C:\Program Files (x86)\Compuware\Topaz Workbench CLI</value>
+        <documentation>The absolute directory path on the Topaz CLI Agent machine where the Topaz Command-Line Interface tools are installed.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Topaz CLI Workspace:</label>
+        <property>topazCLIWorkspace</property>
+        <required>1</required>
+        <value>C:\Program Files (x86)\Compuware\Topaz Workbench CLI\workspace</value>
+        <documentation>The absolute directory path on the Topaz CLI Agent machine of the default workspace to use with the Topaz Command-Line Interface tools.</documentation>
     </formElement>
     <formElement>
         <type>entry</type>
         <label>JRE Home Directory:</label>
         <property>jreHome</property>
         <required>1</required>
-        <documentation>The directory path on the Topaz CLI Agent machine of the Java Runtime Environment (JRE) to use with the Topaz Command-Line Interface tools</documentation>
+        <value>C:\Program Files\Compuware\Topaz Workbench\eclipse\jre</value>
+        <documentation>The directory path on the Topaz CLI Agent machine of the Java Runtime Environment (JRE) to use with the Topaz Command-Line Interface tools.</documentation>
     </formElement>
     <formElement>
+        <type>entry</type>
+        <label>Mainframe Host Name or IP:</label>
+        <property>zOSHost</property>
+        <required>1</required>
+        <documentation>The z/OS mainframe host addess or IP address.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Mainframe Port:</label>
+        <property>zOSPort</property>
+        <required>1</required>
+        <documentation>The z/OS mainframe host port number.</documentation>
+    </formElement> 
+    <formElement>
         <type>credential</type>
-        <label>Credential:</label>
+        <label>Mainframe Credential:</label>
         <property>credential</property>
         <required>1</required>
-        <documentation>Credentials to connect to mainframe</documentation>
+        <documentation>The credentials to use to connect to the z/OS mainframe host.</documentation>
         <attachedAsParameterToStep>createAndAttachCredential</attachedAsParameterToStep>
     </formElement>
 </editor>

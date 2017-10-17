@@ -1,0 +1,114 @@
+<!--
+
+     Copyright 2016 Electric Cloud, Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<!--
+Each form element represents a procedure parameter. 
+The corresponding procedure parameters will be created automatically when 
+the plugin in installed and promoted.
+
+formElement nested elements:
+============================
+property:   formal parameter name
+type    :   entry|textarea|checkbox|select|radio|credential
+label   :   String-type. Parameter label value
+required:   1|0
+value   : Parameter default value
+documentation : Help text for the parameter
+-->
+<editor>
+    <formElement>
+        <type>entry</type>
+        <label>Configuration Name:</label>
+        <property>configurationName</property>
+        <required>1</required>
+        <documentation>Name of EC-ISPW-CLI configuration to use.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>EBCDIC Code Page:</label>
+        <property>codePage</property>
+        <required>1</required>
+        <value>1047</value>
+        <documentation>The EBCDIC code page to use for transferring files from the host.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Target Folder:</label>
+        <property>targetFolder</property>
+        <required>1</required>
+        <documentation>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Server Stream:</label>
+        <property>serverStream</property>
+        <required>1</required>
+        <documentation>The two-to-eight character stream defining the application structure with which the application is associated.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Server Application:</label>
+        <property>serverApplication</property>
+        <required>1</required>
+        <documentation>The container's primary application code. Containers may include components from multiple applications.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Server Level:</label>
+        <property>serverLevel</property>
+        <required>1</required>
+        <value>PRD</value>
+        <documentation>The life cycle level to retrieve from.</documentation>
+    </formElement> 
+    <formElement>
+        <type>radio</type>
+        <label>Level Option:</label>
+        <property>levelOption</property>
+        <required>1</required>
+        <option>
+            <name>Selected level only</name>
+            <value>0</value>
+        </option>
+        <option>
+            <name >First found in level and above</name>
+            <value>1</value>
+        </option>
+        <value>0</value>
+        <documentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above</b> to display the first version found of each component at the selected level and above.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Server Configuration:</label>
+        <property>serverConfig</property>
+        <required>0</required>
+        <documentation>The host runtime configuration (optional).</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Filter Name:</label>
+        <property>filterName</property>
+        <required>0</required>
+        <documentation>The entire component name or a partial type or name suffixed with an asterisk on which to filter (oprional). Omit this to not filter on component name.</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
+        <label>Filter Type:</label>
+        <property>filterType</property>
+        <required>0</required>
+        <documentation>The ISPW component type (such as COB, COPY, or JOB) to return (optional). Folders are always returned. If this is omitted, all component types are returned.</documentation>
+    </formElement> 
+</editor>

@@ -35,125 +35,102 @@ documentation : Help text for the parameter
         <label>Configuration Name:</label>
         <property>configurationName</property>
         <required>1</required>
-        <documentation>Name of EC-Compuware-Topaz configuration to use</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Host Name or IP:</label>
-        <property>host</property>
-        <required>1</required>
-        <documentation>Host/IP of mainframe to connect</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Port:</label>
-        <property>port</property>
-        <required>1</required>
-        <documentation>Define the port to connect to mainframe</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe User Name:</label>
-        <property>userId</property>
-        <required>1</required>
-        <documentation>Username to access mainframe</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Password:</label>
-        <property>pw</property>
-        <required>1</required>
-        <documentation>Password to access mainframe</documentation>
+        <documentation>Name of EC-ISPW-CLI configuration to use.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>EBCDIC Code Page:</label>
         <property>codePage</property>
         <required>1</required>
-        <documentation>The EBCDIC code page to use for transferring files from the host. e.g "1047"</documentation>
+        <value>1047</value>
+        <documentation>The EBCDIC code page to use for transferring files from the host. -?</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Timeout:</label>
         <property>timeout</property>
         <required>1</required>
-        <documentation>Work timeout</documentation>
+        <value>300</value>
+        <documentation>The timeout.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Target Folder:</label>
         <property>targetFolder</property>
         <required>1</required>
-        <documentation>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Topaz CLI Workspace:</label>
-        <property>topazCLIWorkspace</property>
-        <required>1</required>
-        <documentation>Topaz CLI Workspace</documentation>
+        <documentation>Relative or absolute path of the directory the files will be downloaded to. If omitted they will be downloaded to the workspace under a folder named for the filter. -?</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Stream:</label>
         <property>serverStream</property>
         <required>1</required>
-        <documentation>The two-to-eight character stream defining the application structure with which the application is associated</documentation>
+        <documentation>The two-to-eight character stream defining the application structure with which the application is associated.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Application:</label>
         <property>serverApplication</property>
         <required>1</required>
-        <documentation>The container's primary application code. Containers may include components from multiple applications</documentation>
+        <documentation>The container's primary application code. Containers may include components from multiple applications.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Level:</label>
         <property>serverLevel</property>
         <required>1</required>
-        <documentation>The life cycle level to retrieve from</documentation>
+        <value>PRD</value> 
+        <documentation>The life cycle level to retrieve from.</documentation>
     </formElement> 
     <formElement>
-        <type>entry</type>
+        <type>radio</type>
         <label>Level Option:</label>
         <property>levelOption</property>
         <required>1</required>
-        <htmlDocumentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above </b> to display the first version found of each component at the selected level and above</htmlDocumentation>
-    </formElement> 
+        <option>
+            <name>Selected level only</name>
+            <value>0</value>
+        </option>
+        <option>
+            <name >First found in level and above</name>
+            <value>1</value>
+        </option>
+        <value>0</value>
+        <documentation>Select one of the following: <b>Selected level only</b> to display only components at the selected life cycle level in the view. <b>First found in level and above</b> to display the first version found of each component at the selected level and above. -ispwLevelOption</documentation>
+    </formElement>
     <formElement>
         <type>entry</type>
         <label>Filter Files:</label>
         <property>filterFiles</property>
-        <required>1</required>
-        <documentation>Setting for files filtering</documentation>
+        <required>0</required>
+        <documentation>A comma-separated list of the component types on which to filter, for example, "COB, COPY, JOB, JAVA". If the Filter Folders filter is enabled, filtering will be constrained to components outside of a folder structure.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Filter Folders:</label>
         <property>filterFolders</property>
-        <required>1</required>
-        <documentation>Setting for directories filtering</documentation>
+        <required>0</required>
+        <documentation>A comma-separated list of the application root folders' names on which to filter, for example, "folder1, folder2, folder3". Application root folders are the top-level folders under the application. All contents of the folders will be returned regardless of the Filter Files filter value.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Server Configuration:</label>
         <property>serverConfig</property>
         <required>0</required>
-        <documentation>The host runtime configuration</documentation>
+        <documentation>The host runtime configuration (optional).</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Folder Name:</label>
         <property>folderName</property>
         <required>0</required>
-        <documentation>The name of the base folder to retrieve from. If this is omitted, the root folder is assumed</documentation>
+        <documentation>The name of the base folder to retrieve from (optional). If this is omitted, the root folder is assumed.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Component Type:</label>
         <property>componentType</property>
         <required>0</required>
-        <documentation>The ISPW component type (such as COB, COPY, or JOB) to return. Folders are always returned. If this is omitted, all component types are returned</documentation>
+        <documentation>The ISPW component type (such as COB, COPY, or JOB) to return (optional). Folders are always returned. If this is omitted, all component types are returned.</documentation>
     </formElement> 
 </editor>

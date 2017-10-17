@@ -35,62 +35,93 @@ documentation : Help text for the parameter
         <label>Configuration Name:</label>
         <property>configurationName</property>
         <required>1</required>
-        <documentation>Name of EC-Compuware-Topaz configuration to use</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Host Name or IP:</label>
-        <property>host</property>
-        <required>1</required>
-        <documentation>The mainframe host addess or IP address</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Port:</label>
-        <property>port</property>
-        <required>1</required>
-        <documentation>The mainframe host port number. e.g "16196"</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe User Name:</label>
-        <property>userId</property>
-        <required>1</required>
-        <documentation>The user name to use to log on to mainframe host</documentation>
-    </formElement> 
-    <formElement>
-        <type>entry</type>
-        <label>Mainframe Password:</label>
-        <property>pw</property>
-        <required>1</required>
-        <documentation>The password to use to log on to mainframe host</documentation>
+        <documentation>Name of EC-Compuware-Topaz configuration to use.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Project Path:</label>
         <property>projectPath</property>
         <required>1</required>
-        <documentation>The path of the folder containing the Total Test project</documentation>
+        <documentation>The path of the folder containing the Total Test project.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>Test Suite or Test Suite List:</label>
         <property>testSuiteList</property>
         <required>1</required>
-        <documentation>The name of the test scenario(s) or test suite(s) to run. e.g. "ALL_SCENARIOS"</documentation>
+        <value>ALL_SCENARIOS</value>
+        <documentation>The name of the test scenario(s) or test suite(s) to run. (-ts or -testsuitelist)</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>JCL</label>
         <property>jcl</property>
         <required>1</required>
-        <documentation>The name of the JCL to run the Topaz for Total Test test scenario or test suite</documentation>
+        <documentation>The name of the JCL to run the Topaz for Total Test test scenario or test suite.</documentation>
     </formElement> 
     <formElement>
         <type>entry</type>
         <label>External Tools Workspace:</label>
         <property>externalToolsWs</property>
         <required>1</required>
-        <documentation>The path of a directory to check out the source code</documentation>
-    </formElement> 
+        <documentation>The path of a directory to check out the source code. (-externaltoolsws => -data)</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Dataset High Level Qualifier HLQ:</label>
+        <property>dSNHLQ</property>
+        <required>0</required>
+        <documentation>High level qualifier to be used when allocating datasets (optional).</documentation>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <label>Use Stubs:</label>
+        <checkedValue>true</checkedValue>
+        <uncheckedValue>false</uncheckedValue>
+        <initiallyChecked>1</initiallyChecked>
+        <property>useStubs</property>
+        <required>0</required>
+        <documentation>Indicates if stubs should be used when running the test scenario or test suite. The default is to use stubs.</documentation>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <label>Delete Temp:</label>
+        <checkedValue>true</checkedValue>
+        <uncheckedValue>false</uncheckedValue>
+        <initiallyChecked>1</initiallyChecked>
+        <property>deleteTemp</property>
+        <required>0</required>
+        <documentation>Delete temporary files after test run. The default is to delete temporary files.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Code Coverage Repo:</label>
+        <property>cCRepo</property>
+        <required>0</required>
+        <documentation>The dataset where Topaz for Total Test will write code coverage information (optional). This dataset will later be fed into the Code Coverage reporting system. Members with like systems, names, and compile date and times will automatically be merged together.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Code Coverage System:</label>
+        <property>cCSystem</property>
+        <required>0</required>
+        <documentation>A system name for this test (optional, ignored unless a Code Coverage Repo value is supplied). Code Coverage keeps statistics by programs separate by system name. This name can be any user-specified name. If not specified defaults to the test scenario/suite name.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Code Coverage Test ID:</label>
+        <property>cCTestID</property>
+        <required>0</required>
+        <documentation>A test identification to be added to the Code Coverage test (optional, required if a Code Coverage Repo value is supplied). This information can be useful when reviewing test reports from Code Coverage.</documentation>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <label>Code Coverage DB2:</label>
+        <checkedValue>true</checkedValue>
+        <uncheckedValue>false</uncheckedValue>
+        <initiallyChecked>0</initiallyChecked>
+        <property>cCDB2</property>
+        <required>0</required>
+        <documentation>Indicates if Code Coverage is for a DB2 program (ignored unless a Code Coverage Repo value is supplied). Should only be checked if the main program is IKJEFT01.</documentation>
+    </formElement>
 </editor>
