@@ -13,7 +13,7 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
         
     step 'Run Total Test (UNIX)',
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Run Total Test (UNIX).sh").text,
-        condition: '$[/javascript ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\" == \"unix\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ]',
+        condition: '$[/javascript ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\".slice(-1) == \"x\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ]',
         errorHandling: 'abortProcedure',
         parallel: '1',
         resourceName: '$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]',
@@ -29,7 +29,7 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
 
     step 'Retrieve Results and Check for Failures (UNIX)', 
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Retrieve Results and Check for Failures (UNIX).sh").text,
-        condition: '$[/javascript ( myParent.steps[\'Run Total Test (UNIX)\'].outcome == \'success\' ) && ( ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\" == \"unix\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ) ]',
+        condition: '$[/javascript ( myParent.steps[\'Run Total Test (UNIX)\'].outcome == \'success\' ) && ( ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\".slice(-1) == \"x\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ) ]',
         errorHandling: 'failProcedure',
         parallel: '1',
         postProcessor: 'postp --loadProperty /myProcedure/extraMatchersResults',
@@ -49,7 +49,7 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
 
     step 'Retrieve Reports (UNIX)', 
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Retrieve Reports (UNIX).sh").text,
-        condition: '$[/javascript ( myParent.steps[\'Run Total Test (UNIX)\'].outcome == \'success\' ) && ( ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\" == \"unix\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ) ]',
+        condition: '$[/javascript ( myParent.steps[\'Run Total Test (UNIX)\'].outcome == \'success\' ) && ( ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\".slice(-1) == \"x\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ) ]',
         errorHandling: 'failProcedure',
         parallel: '1',
         postProcessor: 'postp --loadProperty /myProcedure/extraMatchersReports',

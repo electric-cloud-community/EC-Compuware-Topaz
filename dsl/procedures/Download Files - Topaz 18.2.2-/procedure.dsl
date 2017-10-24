@@ -13,7 +13,7 @@ procedure procName, description: 'Use the ISPW CLI to download source code or ot
         
     step 'Download Files (UNIX)',
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Download Files (UNIX).sh").text,
-        condition: '$[/javascript ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\" == \"unix\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ]',
+        condition: '$[/javascript ( \"$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]\".slice(-1) == \"x\" ) || ( \'$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]\'.indexOf(\"sh \") >= 0 ) ]',
         errorHandling: 'abortProcedure',
         parallel: '1',
         postProcessor: 'postp',
