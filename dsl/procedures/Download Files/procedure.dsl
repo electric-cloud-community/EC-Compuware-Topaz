@@ -1,7 +1,9 @@
 import java.io.File
 
-def procName = 'Download Files - Topaz 18.2.2-'
-procedure procName, description: 'Use the ISPW CLI to download source code or other component files. This version of the Download Files procedure is compatible with the 18.2.2 version of the Topaz CLI (released July 2017), but not with later versions.', {
+// def procName = 'Download Files - Topaz 18.2.2-'
+// procedure procName, description: 'Use the ISPW CLI to download source code or other component files. This version of the Download Files procedure is compatible with the 18.2.2 version of the Topaz CLI (released July 2017), but not with later versions.', {
+def procName = 'Download Files'
+procedure procName, description: 'Use the ISPW CLI to download source code or other component files.', {
     resourceName: '$[/myPlugin/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]'
 
     step 'Transfer Credential',

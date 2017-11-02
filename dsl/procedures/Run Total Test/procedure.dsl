@@ -67,7 +67,7 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
         resourceName: '$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]',
         workingDirectory: '$[externalToolsWs]'
 
-    step 'Attach Reports (Windows)', 
+    step 'Attach Reports', 
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Attach Reports.pl").text,
         errorHandling: 'failProcedure',
         shell: 'ec-perl'
