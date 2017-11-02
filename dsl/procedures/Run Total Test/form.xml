@@ -39,6 +39,13 @@ documentation : Help text for the parameter
     </formElement> 
     <formElement>
         <type>entry</type>
+        <label>Result Property Sheet:</label>
+        <property>resultPropertySheet</property>
+        <required>0</required>
+        <documentation>If this is set to the path of a property sheet, then the number of tests run, the number of errors encountered during the tests, and the number of those errors that were simply tests that failed (as opposed to more serious problems that prevented execution of tests) will be returned as properties called tests, errors, and failures respectively in that property sheet. (These properties also exist on the step that runs this procedure.)</documentation>
+    </formElement> 
+    <formElement>
+        <type>entry</type>
         <label>Project Path:</label>
         <property>projectPath</property>
         <required>1</required>

@@ -5,6 +5,7 @@ use ElectricCommander;
 $| = 1;
 my $ec = new ElectricCommander;
 
+# Attach reports
 my $platform = '$[/javascript ( ( "$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]" == "unix" ) || ( '$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]'.indexOf("sh ") >= 0 ) ) ? "UNIX" : "Windows"]';
 my $propertySheet = $ec->getProperties({path => "/myParent/steps/Retrieve Reports ($platform)/reports"});
 my @properties = $propertySheet->findnodes("//property");
@@ -30,9 +31,24 @@ foreach my $property (@properties) {
     $ec->createProperty("/myJob/report-urls/$reportName", {value => "/commander/jobSteps/$[jobStepId]/$reportName"});
 }
 
+# Copy counts to parent step
+
 my $tests = $ec->getProperty("/myParent/steps/Retrieve Results and Check for Failures ($platform)/tests");
-$ec->setProperty("/myParent/tests", $tests->findvalue("//value")->value);
 my $errors = $ec->getProperty("/myParent/steps/Retrieve Results and Check for Failures ($platform)/errors");
-$ec->setProperty("/myParent/errors", $errors->findvalue("//value")->value);
 my $failures = $ec->getProperty("/myParent/steps/Retrieve Results and Check for Failures ($platform)/failures");
-$ec->setProperty("/myParent/failures", $failures->findvalue("//value")->value);
+
+$tests = $tests->findvalue("//value")->value;
+$errors = $errors->findvalue("//value")->value;
+$failures = $failures->findvalue("//value")->value;
+
+$ec->setProperty("/myParent/tests", $tests);
+$ec->setProperty("/myParent/errors", $errors);
+$ec->setProperty("/myParent/failures", $failures);
+
+my $resultPropertySheet = '$[resultPropertySheet]';
+if (length($resultPropertySheet) > 0) {
+    # Copy counts to property sheet
+    $ec->setProperty("$resultPropertySheet/tests", $tests);
+    $ec->setProperty("$resultPropertySheet/errors", $errors);
+    $ec->setProperty("$resultPropertySheet/failures", $failures);
+}
