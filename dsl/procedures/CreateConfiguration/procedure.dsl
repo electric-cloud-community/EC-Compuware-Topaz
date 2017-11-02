@@ -21,6 +21,6 @@ procedure procName,
         shell: 'ec-perl',
         timeLimitUnits: 'minutes'
         
-    property 'ec_stepsWithAttachedCredentials', value: '''[{"procedureName":"Run Total Test", "stepName":"Transfer Credential"},{"procedureName":"Run Total Test", "stepName":"Run Total Test (UNIX)"},{"procedureName":"Run Total Test", "stepName":"Run Total Test (Windows)"},{"procedureName":"Download Files - Topaz 18.2.2-", "stepName":"Transfer Credential"},{"procedureName":"Download Files - Topaz 18.2.2-", "stepName":"Download Files (UNIX)"},{"procedureName":"Download Files - Topaz 18.2.2-", "stepName":"Download Files (Windows)"},{"procedureName":"Download Files - Topaz 18.2.3+", "stepName":"Transfer Credential"},{"procedureName":"Download Files - Topaz 18.2.3+", "stepName":"Download Files (UNIX)"},{"procedureName":"Download Files - Topaz 18.2.3+", "stepName":"Download Files (Windows)"}]'''
+    property 'ec_stepsWithAttachedCredentials', value: '''[{"procedureName":"Run Total Test", "stepName":"Transfer Credential"},{"procedureName":"Run Total Test", "stepName":"Run Total Test (UNIX)"},{"procedureName":"Run Total Test", "stepName":"Run Total Test (Windows)"},{"procedureName":"Download Files", "stepName":"Transfer Credential"},{"procedureName":"Download Files", "stepName":"Download Files (UNIX)"},{"procedureName":"Download Files", "stepName":"Download Files (Windows)"}]'''
 
 }
