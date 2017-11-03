@@ -444,8 +444,8 @@ mkdir -p TopazCliWkspc/
 cd TopazCliWkspc/
 touch eccu eccp
 chmod 600 eccu eccu
-echo "$userName" > eccu
-echo "$password" > eccp
+builtin echo "$userName" > eccu
+builtin echo "$password" > eccp
 chmod 400 eccu eccp
 _EOUNIX_
 } elsif ( $[/javascript ( ( '$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]'.indexOf("cmd ") == 0 ) && ( '$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]'.indexOf(' "{0}.cmd"') == '$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]'.length - 10 ) ) ? '1' : '0' ] ) { # Expecting something like 'cmd /q /c "{0}.cmd"'

@@ -7,7 +7,7 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
     step 'Transfer Credential',
         command: new File(pluginDir, "dsl/procedures/$procName/steps/Transfer Credential.pl").text,
         condition: '$[/javascript "$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/proxyHostName]".length > 0]',
-        description: 'If the topazCLIAgent is a proxy agent, then use code copied from ecproxy.pl to make an ssh connection to the same machine that the topazCLIAgent proxies to, and use it to put the user name and password in restricted-access files in a subdirectory called TopazCliWkspc in the externalToolsWs directory',
+        description: 'If the topazCLIAgent is a proxy agent, then we need to transfer the user name and password from the credential to it (they are temporarily stored in access-locked-down files inside the externalToolsWs directory).',
         errorHandling: 'abortProcedure',
         shell: 'ec-perl'
         
@@ -84,14 +84,14 @@ procedure procName, description: 'Use the ISPW CLI to run Total Test test suite(
             id      => "failureTag",
             pattern => q{<failure[> ]},
             action  => q{
-                  incValue("errors"); incValue("failures"); diagnostic("failureTag", "error", backTo(q{<test[Cc]ase[> ]}, -1), forwardTo(q{</test[Cc]ase[> ]}, 1))
+                  incValue("errors"); incValue("failures"); diagnostic("failure", "error", backTo(q{<test[Cc]ase[> ]}, -1), forwardTo(q{</test[Cc]ase[> ]}, 1))
                         } 
         },
         {
             id      => "errorTag",
             pattern => q{<error[> ]},
             action  => q{
-                  incValue("errors"); diagnostic("errorTag", "error", backTo(q{<test[Cc]ase[> ]}, -1), forwardTo(q{</test[Cc]ase[> ]}, 1))
+                  incValue("errors"); incValue("abends"); diagnostic("abend", "error", backTo(q{<test[Cc]ase[> ]}, -1), forwardTo(q{</test[Cc]ase[> ]}, 1))
                         } 
         },
      );'''
