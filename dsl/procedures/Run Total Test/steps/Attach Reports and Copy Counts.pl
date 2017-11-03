@@ -42,7 +42,7 @@ $ec->setProperty("/myParent/abends", {value => $abends, description => "Count of
 my $resultPropertySheet = '$[resultPropertySheet]';
 if (length($resultPropertySheet) > 0) {
 
-    # Copy counts to property sheet
+    # Copy counts to property sheet #### TODO This should check if the properties already exist, and if so do += to accumulate
     $ec->setProperty("$resultPropertySheet/tests", {value => $tests, description => "Count of tests that were run"});
     $ec->setProperty("$resultPropertySheet/errors", {value => $errors, description => "errors = failures + abends"});
     $ec->setProperty("$resultPropertySheet/failures", {value => $failures, description => "Count of tests that were run and failed"});
