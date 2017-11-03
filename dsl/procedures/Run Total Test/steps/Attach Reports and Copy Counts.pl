@@ -1,11 +1,14 @@
 use strict;
 use warnings;
 use ElectricCommander;
-# use Data::Dumper;
+use ElectricCommander::PropMod;
+
 use B;
 $| = 1;
 
 my $ec = new ElectricCommander;
+# Template engine
+ElectricCommander::PropMod::loadPerlCodeFromProperty($ec, '/projects/@PLUGIN_NAME@/lib/Text/MicroTemplate');
 
 my $platform = '$[/javascript ( ( "$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/hostPlatform]" == "unix" ) || ( '$[/resources/$[/myPlugin/project/ec_plugin_cfgs/$[configurationName]/topazCLIAgent]/shell]'.indexOf("sh ") >= 0 ) ) ? "UNIX" : "Windows"]';
 
@@ -53,6 +56,8 @@ if (length($resultPropertySheet) > 0) {
 
 my $propertySheet = $ec->getProperties({path => "/myParent/steps/Retrieve Reports ($platform)/reports"});
 my @properties = $propertySheet->findnodes("//property");
+
+my %reportLinks = ();
 foreach my $property (@properties) {
     my $reportName = $property->findvalue("propertyName")->value . "-(Run_" . uc(substr(B::hash('$[jobStepId]'),2)) . ")";  # The report name becomes a property name, which has to be unique -- shortening guid to a hash so it looks less ugly
     my $reportLocation = $reportName . ".html";
@@ -73,9 +78,59 @@ foreach my $property (@properties) {
     if ($@) {
         $ec->createProperty("/myJob/artifactsDirectory", {value => "."});
     }
-    $ec->createProperty("/myJob/report-urls/$reportName", {value => "/commander/jobSteps/$[jobStepId]/$reportLocation"});
-    
+
+    my $reportLink = "/commander/jobSteps/$[jobStepId]/$reportLocation";
+    $reportLinks{$reportName} = $reportLink;
+    $ec->createProperty("/myJob/report-urls/$reportName", {value => $reportLink});
+
     if (length($resultPropertySheet) > 0) {
-        $ec->createProperty("$resultPropertySheet/report-urls/$reportName", {value => "/commander/jobSteps/$[jobStepId]/$reportLocation"});
+        $ec->createProperty("$resultPropertySheet/report-urls/$reportName", {value => $reportLink});
     }
+}
+
+
+# Generating HTML report
+
+my $dataForReport = {
+    total => $tests,
+    failures => $failures,
+    abends => $abends,
+    reportLinks => \%reportLinks,
+};
+
+
+my $template = $ec->getProperty('/projects/@PLUGIN_NAME@/resources/totalTestReport')->findvalue('//value')->string_value;
+my $report = _render_mt(text => $template, render_params => {data => $dataForReport});
+
+
+# Attach file to job
+eval { $ec->getProperty("artifactsDirectory", {"jobId" => "$[jobId]"})};
+if ($@) {
+    $ec->createProperty("/myJob/artifactsDirectory", {value => "."});
+}
+
+my $randomNumber = int rand 99999;
+my $totalReportLocation = "totalTestReport_$randomNumber.html";
+open my $fh, ">$totalReportLocation" or die "Cannot open $totalReportLocation: $!";
+print $fh $report;
+close $fh;
+
+my $reportLink = "/commander/jobSteps/$[jobStepId]/$totalReportLocation";
+$ec->setProperty("/myJob/report-urls/Total Test Report", $reportLink);
+
+sub _render_mt {
+    my (%params) = @_;
+
+    my $template = $params{text};
+    my $render_params = $params{render_params};
+
+    my $renderer = Text::MicroTemplate::build_mt($template);
+
+    my $result = eval { $renderer->($render_params)->as_string };
+    if ($@) {
+        my $message = "Render failed: $@";
+        $message .= Dumper(\%params);
+        die $message;
+    }
+    return $result;
 }
