@@ -81,10 +81,10 @@ foreach my $property (@properties) {
 
     my $reportLink = "/commander/jobSteps/$[jobStepId]/$reportLocation";
     $reportLinks{$reportName} = $reportLink;
-    $ec->createProperty("/myJob/report-urls/$reportName", {value => "/commander/jobSteps/$[jobStepId]/$reportLocation"});
+    $ec->createProperty("/myJob/report-urls/$reportName", {value => $reportLink});
 
     if (length($resultPropertySheet) > 0) {
-        $ec->createProperty("$resultPropertySheet/report-urls/$reportName", {value => "/commander/jobSteps/$[jobStepId]/$reportLocation"});
+        $ec->createProperty("$resultPropertySheet/report-urls/$reportName", {value => $reportLink});
     }
 }
 
@@ -93,7 +93,6 @@ foreach my $property (@properties) {
 
 my $dataForReport = {
     total => $tests,
-    errors => $errors,
     failures => $failures,
     abends => $abends,
     reportLinks => \%reportLinks,
