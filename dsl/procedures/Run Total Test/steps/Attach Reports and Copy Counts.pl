@@ -59,7 +59,7 @@ my @properties = $propertySheet->findnodes("//property");
 
 my %reportLinks = ();
 foreach my $property (@properties) {
-    my $reportName = $property->findvalue("propertyName")->value . "-(Run_" . uc(substr(B::hash('$[jobStepId]'),2)) . ")";  # The report name becomes a property name, which has to be unique -- shortening guid to a hash so it looks less ugly
+    my $reportName = $property->findvalue("propertyName")->value;
     my $reportLocation = $reportName . ".html";
     my $reportContent = $property->findvalue("value")->value;
 
