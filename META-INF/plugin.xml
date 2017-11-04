@@ -1,7 +1,7 @@
 <plugin>
   <key>EC-Compuware-Topaz</key>
   <label>EC-Compuware-Topaz</label>
-  <version>1.0.0.34</version>
+  <version>1.0.0.36</version>
   <author>Electric Cloud</author>
   <authorUrl>www.electric-cloud.com/support</authorUrl>
   <category>Mainframe</category>
