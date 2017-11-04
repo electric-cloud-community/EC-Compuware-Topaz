@@ -84,7 +84,7 @@ foreach my $property (@properties) {
     $ec->createProperty("/myJob/report-urls/$reportName", {value => $reportLink});
 
     if (length($resultPropertySheet) > 0) {
-        $ec->createProperty("$resultPropertySheet/report-urls/$reportName", {value => $reportLink});
+        $ec->setProperty("$resultPropertySheet/report-urls/$reportName", $reportLink);
     }
 }
 
