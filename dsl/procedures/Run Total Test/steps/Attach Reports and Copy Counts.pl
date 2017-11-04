@@ -116,7 +116,12 @@ print $fh $report;
 close $fh;
 
 my $reportLink = "/commander/jobSteps/$[jobStepId]/$totalReportLocation";
-$ec->setProperty("/myJob/report-urls/Total Test Report", $reportLink);
+$ec->setProperty("/myJob/report-urls/Topaz for Total Test Report", $reportLink);
+
+eval {
+    $ec->setProperty("/myPipelineStageRuntime/ec_summary/Topaz for Total Test Report",
+    qq{<html><a href="$reportLink" target="_blank">Link for Report</a></html>});
+};
 
 sub _render_mt {
     my (%params) = @_;
