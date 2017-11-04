@@ -76,12 +76,12 @@ foreach my $property (@properties) {
     my $xp;
     eval {$xp = $ec->getProperty("artifactsDirectory", {"jobId" => "$[jobId]"})};
     if ($@) {
-        $ec->createProperty("/myJob/artifactsDirectory", {value => "."});
+        $ec->setProperty("/myJob/artifactsDirectory", {value => "."});
     }
 
     my $reportLink = "/commander/jobSteps/$[jobStepId]/$reportLocation";
     $reportLinks{$reportName} = $reportLink;
-    $ec->createProperty("/myJob/report-urls/$reportName", {value => $reportLink});
+    $ec->setProperty("/myJob/report-urls/$reportName", {value => $reportLink});
 
     if (length($resultPropertySheet) > 0) {
         $ec->setProperty("$resultPropertySheet/report-urls/$reportName", $reportLink);
