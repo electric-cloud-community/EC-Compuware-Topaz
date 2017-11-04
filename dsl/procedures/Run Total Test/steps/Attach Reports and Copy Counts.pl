@@ -95,6 +95,7 @@ my $dataForReport = {
     total => $tests,
     failures => $failures,
     abends => $abends,
+    errors => $errors,
     reportLinks => \%reportLinks,
 };
 
