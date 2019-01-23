@@ -5,6 +5,7 @@
   <author>Electric Cloud</author>
   <authorUrl>www.electric-cloud.com/support</authorUrl>
   <category>Mainframe</category>
+  <ecSupportLevel>10</ecSupportLevel>
   <commander-version min="6.0" />
   <description>Integrates with Compuware Topaz Command Line Interface</description>
   <configure>ec_config</configure>
